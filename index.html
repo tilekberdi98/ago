@@ -8,29 +8,85 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<meta name="theme-color" content="#FFD400">
+<meta name="theme-color" content="#FFD000">
 
 <title>O Go — Осакаровка</title>
 
 <style>
 
-*{box-sizing:border-box;margin:0;padding:0}
+:root{
 
-body{
+  --yellow:#FFD000;
 
-  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;
+  --black:#111111;
 
-  background:#f5f5f3;
+  --white:#ffffff;
 
-  color:#111;
+  --bg:#f5f5f3;
+
+  --gray:#777;
+
+  --line:#e7e7e4;
+
+  --radius:18px;
 
 }
 
-button,input{font:inherit}
+*{
 
-button{border:0;cursor:pointer}
+  box-sizing:border-box;
 
-a{text-decoration:none;color:inherit}
+}
+
+html{
+
+  scroll-behavior:smooth;
+
+}
+
+body{
+
+  margin:0;
+
+  background:var(--bg);
+
+  color:var(--black);
+
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;
+
+}
+
+button,
+
+input,
+
+textarea{
+
+  font:inherit;
+
+}
+
+button{
+
+  cursor:pointer;
+
+}
+
+.app{
+
+  width:100%;
+
+  max-width:600px;
+
+  min-height:100vh;
+
+  margin:auto;
+
+  background:#fff;
+
+}
+
+/* HEADER */
 
 .header{
 
@@ -38,19 +94,17 @@ a{text-decoration:none;color:inherit}
 
   top:0;
 
-  z-index:50;
+  z-index:100;
 
-  background:#ffd400;
+  background:#fff;
 
-  padding:12px 16px;
+  border-bottom:1px solid var(--line);
+
+  padding:12px 15px;
 
 }
 
-.header-inner{
-
-  max-width:1100px;
-
-  margin:auto;
+.header-row{
 
   display:flex;
 
@@ -62,7 +116,7 @@ a{text-decoration:none;color:inherit}
 
 .logo{
 
-  font-size:27px;
+  font-size:28px;
 
   font-weight:900;
 
@@ -72,115 +126,165 @@ a{text-decoration:none;color:inherit}
 
 .location{
 
-  font-size:13px;
-
   margin-top:2px;
+
+  color:#666;
+
+  font-size:13px;
 
 }
 
-.cart-btn{
+.cart-button{
+
+  border:0;
 
   background:#111;
 
-  color:white;
+  color:#fff;
 
   border-radius:14px;
 
-  padding:10px 14px;
+  padding:10px 13px;
 
   font-weight:800;
 
 }
 
+.cart-count{
+
+  display:inline-block;
+
+  min-width:22px;
+
+  padding:2px 6px;
+
+  margin-left:4px;
+
+  border-radius:8px;
+
+  background:var(--yellow);
+
+  color:#111;
+
+}
+
+/* CONTENT */
+
+.content{
+
+  padding:14px 14px 90px;
+
+}
+
+.page{
+
+  display:none;
+
+}
+
+.page.active{
+
+  display:block;
+
+}
+
+/* HOME */
+
 .hero{
 
-  max-width:1100px;
+  position:relative;
 
-  height:330px;
+  overflow:hidden;
 
-  margin:auto;
-
-  background:
-
-    linear-gradient(to top,rgba(0,0,0,.65),rgba(0,0,0,.05)),
-
-    url("hero.jpg") center/cover;
-
-  border-radius:0 0 26px 26px;
-
-  display:flex;
-
-  align-items:flex-end;
-
-  padding:24px 18px;
-
-}
-
-.hero-text{
-
-  color:white;
-
-}
-
-.hero-text h1{
-
-  font-size:46px;
-
-  line-height:1;
-
-  margin-bottom:8px;
-
-}
-
-.hero-text p{
-
-  font-size:16px;
-
-  max-width:400px;
-
-}
-
-.services{
-
-  max-width:1100px;
-
-  margin:auto;
-
-  padding:24px 16px 10px;
-
-}
-
-.services h2{
-
-  font-size:25px;
+  min-height:165px;
 
   margin-bottom:14px;
 
+  padding:24px 19px;
+
+  border-radius:24px;
+
+  background:var(--yellow);
+
 }
 
-.service-grid{
+.hero h1{
+
+  position:relative;
+
+  z-index:2;
+
+  max-width:310px;
+
+  margin:0 0 8px;
+
+  font-size:30px;
+
+  line-height:1.03;
+
+  font-weight:900;
+
+  letter-spacing:-1px;
+
+}
+
+.hero p{
+
+  position:relative;
+
+  z-index:2;
+
+  max-width:300px;
+
+  margin:0;
+
+  font-size:14px;
+
+}
+
+.hero-bg{
+
+  position:absolute;
+
+  right:-15px;
+
+  bottom:-25px;
+
+  font-size:90px;
+
+  font-weight:900;
+
+  opacity:.08;
+
+  transform:rotate(-8deg);
+
+}
+
+/* SERVICES */
+
+.services{
 
   display:grid;
 
-  grid-template-columns:repeat(2,1fr);
+  grid-template-columns:1fr 1fr;
 
-  gap:12px;
+  gap:10px;
 
 }
 
 .service{
 
-  background:white;
+  min-height:130px;
 
-  border-radius:20px;
-
-  min-height:145px;
-
-  padding:18px;
+  padding:17px;
 
   text-align:left;
 
-  box-shadow:0 3px 15px rgba(0,0,0,.06);
+  background:#fff;
+
+  border:1px solid var(--line);
+
+  border-radius:20px;
 
   transition:.15s;
 
@@ -192,17 +296,19 @@ a{text-decoration:none;color:inherit}
 
 }
 
-.icon{
+.service-icon{
 
-  font-size:38px;
+  margin-bottom:14px;
 
-  margin-bottom:20px;
+  font-size:30px;
 
 }
 
 .service-title{
 
-  font-size:20px;
+  display:block;
+
+  font-size:17px;
 
   font-weight:900;
 
@@ -210,67 +316,101 @@ a{text-decoration:none;color:inherit}
 
 .service-text{
 
-  color:#777;
-
-  font-size:13px;
+  display:block;
 
   margin-top:4px;
 
-}
+  color:var(--gray);
 
-.section{
-
-  max-width:1100px;
-
-  margin:auto;
-
-  padding:25px 16px;
+  font-size:12px;
 
 }
 
-.shop{
+/* PARTNER */
 
-  background:white;
+.partner{
 
-  border-radius:22px;
+  display:flex;
 
-  padding:18px;
+  align-items:center;
+
+  justify-content:space-between;
+
+  gap:10px;
+
+  margin-top:14px;
+
+  padding:15px;
+
+  border-radius:20px;
+
+  background:#111;
+
+  color:#fff;
 
 }
 
-.section-title{
+.partner small{
 
-  font-size:25px;
+  color:#bbb;
+
+}
+
+.partner-logo{
+
+  padding:9px 11px;
+
+  border-radius:12px;
+
+  background:#fff;
+
+  color:#111;
 
   font-weight:900;
 
-  margin-bottom:6px;
+}
+
+/* TITLES */
+
+.back{
+
+  padding:5px 0 14px;
+
+  border:0;
+
+  background:none;
+
+  font-weight:800;
 
 }
 
-.muted{
+.title{
 
-  color:#777;
+  margin:0 0 15px;
 
-  font-size:14px;
+  font-size:27px;
+
+  font-weight:900;
 
 }
+
+/* STORE */
 
 .search{
 
   width:100%;
 
-  border:0;
+  margin-bottom:10px;
 
-  outline:0;
+  padding:14px 15px;
 
-  background:#f3f3f1;
+  border:1px solid var(--line);
 
-  border-radius:14px;
+  border-radius:15px;
 
-  padding:14px;
+  outline:none;
 
-  margin-top:15px;
+  background:#fafafa;
 
 }
 
@@ -278,35 +418,33 @@ a{text-decoration:none;color:inherit}
 
   display:flex;
 
-  gap:8px;
+  gap:7px;
 
   overflow-x:auto;
 
-  margin:12px 0;
+  padding-bottom:10px;
 
 }
 
-.category{
+.categories button{
 
-  background:#f2f2f0;
+  flex-shrink:0;
 
-  border-radius:20px;
+  padding:9px 12px;
 
-  padding:9px 13px;
+  border:0;
 
-  white-space:nowrap;
+  border-radius:12px;
 
-  font-size:13px;
-
-  font-weight:700;
+  background:#eee;
 
 }
 
-.category.active{
+.categories button.active{
 
-  background:#111;
+  background:var(--yellow);
 
-  color:white;
+  font-weight:800;
 
 }
 
@@ -314,7 +452,7 @@ a{text-decoration:none;color:inherit}
 
   display:grid;
 
-  grid-template-columns:repeat(2,1fr);
+  grid-template-columns:1fr 1fr;
 
   gap:10px;
 
@@ -322,31 +460,37 @@ a{text-decoration:none;color:inherit}
 
 .product{
 
-  border:1px solid #eee;
+  display:flex;
+
+  flex-direction:column;
+
+  min-height:190px;
+
+  padding:11px;
+
+  border:1px solid var(--line);
 
   border-radius:17px;
 
-  padding:12px;
+  background:#fff;
 
 }
 
 .product-image{
 
+  display:grid;
+
+  place-items:center;
+
   height:85px;
+
+  margin-bottom:9px;
 
   border-radius:13px;
 
-  background:#f5f5f3;
+  background:#f3f3f0;
 
-  display:flex;
-
-  align-items:center;
-
-  justify-content:center;
-
-  font-size:45px;
-
-  margin-bottom:9px;
+  font-size:36px;
 
 }
 
@@ -354,281 +498,227 @@ a{text-decoration:none;color:inherit}
 
   font-size:14px;
 
-  font-weight:800;
+  font-weight:700;
+
+  line-height:1.2;
 
 }
 
-.price{
+.product-price{
+
+  margin:7px 0;
+
+  font-size:17px;
 
   font-weight:900;
 
-  margin-top:4px;
-
 }
 
-.add{
+.add-button{
 
   width:100%;
 
-  background:#ffd400;
-
-  border-radius:11px;
+  margin-top:auto;
 
   padding:10px;
 
-  margin-top:9px;
+  border:0;
+
+  border-radius:12px;
+
+  background:var(--yellow);
 
   font-weight:900;
 
 }
 
-.taxi{
+/* FORMS */
 
-  background:#111;
+.notice{
 
-  color:white;
+  margin-bottom:12px;
 
-  border-radius:22px;
+  padding:12px;
 
-  padding:20px;
+  border-radius:14px;
 
-}
+  background:#fff7ca;
 
-.taxi h2{
-
-  font-size:25px;
-
-  margin-bottom:7px;
+  font-size:13px;
 
 }
 
-.taxi p{
+.form{
 
-  color:#aaa;
+  padding:15px;
 
-  margin-bottom:15px;
+  border:1px solid var(--line);
+
+  border-radius:20px;
+
+  background:#fff;
 
 }
 
 .field{
 
-  width:100%;
-
-  border:0;
-
-  outline:0;
-
-  border-radius:12px;
-
-  padding:14px;
-
-  margin-bottom:9px;
+  margin-bottom:11px;
 
 }
 
-.yellow{
+.field label{
+
+  display:block;
+
+  margin-bottom:5px;
+
+  color:#777;
+
+  font-size:12px;
+
+}
+
+.field input,
+
+.field textarea{
+
+  width:100%;
+
+  padding:13px;
+
+  border:1px solid var(--line);
+
+  border-radius:13px;
+
+  outline:none;
+
+  background:#fafafa;
+
+}
+
+.field textarea{
+
+  min-height:90px;
+
+  resize:vertical;
+
+}
+
+.primary{
 
   width:100%;
 
   padding:14px;
 
-  border-radius:12px;
+  border:0;
 
-  background:#ffd400;
+  border-radius:14px;
+
+  background:var(--yellow);
 
   font-weight:900;
 
 }
 
-.download{
+/* CART */
 
-  background:#ffd400;
+.cart-list{
 
-  border-radius:22px;
-
-  padding:22px;
-
-}
-
-.download h2{
-
-  font-size:25px;
-
-  margin-bottom:7px;
-
-}
-
-.apps{
-
-  display:flex;
+  display:grid;
 
   gap:9px;
-
-  margin-top:15px;
-
-}
-
-.app{
-
-  flex:1;
-
-  background:#111;
-
-  color:white;
-
-  border-radius:12px;
-
-  padding:12px;
-
-  text-align:center;
-
-  font-weight:700;
-
-  font-size:13px;
-
-}
-
-footer{
-
-  background:#111;
-
-  color:white;
-
-  padding:28px 16px;
-
-  text-align:center;
-
-}
-
-footer .logo{
-
-  font-size:25px;
-
-}
-
-footer p{
-
-  color:#999;
-
-  font-size:13px;
-
-  margin-top:5px;
-
-}
-
-.cart-panel{
-
-  display:none;
-
-  position:fixed;
-
-  inset:0;
-
-  background:rgba(0,0,0,.45);
-
-  z-index:100;
-
-  align-items:flex-end;
-
-}
-
-.cart-panel.open{
-
-  display:flex;
-
-}
-
-.cart{
-
-  width:100%;
-
-  max-height:88vh;
-
-  background:white;
-
-  border-radius:25px 25px 0 0;
-
-  padding:20px;
-
-  overflow:auto;
-
-}
-
-.cart-head{
-
-  display:flex;
-
-  justify-content:space-between;
-
-  align-items:center;
-
-  margin-bottom:12px;
-
-}
-
-.close{
-
-  width:36px;
-
-  height:36px;
-
-  border-radius:50%;
-
-  background:#eee;
-
-  font-size:20px;
 
 }
 
 .cart-item{
 
-  display:flex;
+  display:grid;
 
-  align-items:center;
+  grid-template-columns:1fr auto;
 
   gap:10px;
 
-  padding:12px 0;
+  padding:12px;
 
-  border-bottom:1px solid #eee;
+  border:1px solid var(--line);
 
-}
+  border-radius:16px;
 
-.cart-info{
-
-  flex:1;
+  background:#fff;
 
 }
 
-.cart-name{
+.cart-item-name{
 
   font-weight:800;
 
-  font-size:14px;
+}
+
+.cart-item-price{
+
+  margin-top:4px;
+
+  color:#666;
+
+  font-size:13px;
 
 }
 
-.qty{
+.quantity{
 
   display:flex;
 
   align-items:center;
 
-  gap:8px;
+  gap:7px;
 
 }
 
-.qty button{
+.quantity button{
 
-  width:30px;
+  width:32px;
 
-  height:30px;
+  height:32px;
 
-  border-radius:9px;
+  border:0;
 
-  background:#ffd400;
+  border-radius:10px;
+
+  background:#eee;
 
   font-weight:900;
+
+}
+
+.quantity strong{
+
+  min-width:18px;
+
+  text-align:center;
+
+}
+
+.summary{
+
+  margin-top:12px;
+
+  padding:15px;
+
+  border:1px solid var(--line);
+
+  border-radius:18px;
+
+  background:#fff;
+
+}
+
+.summary-line{
+
+  display:flex;
+
+  justify-content:space-between;
+
+  margin:7px 0;
 
 }
 
@@ -638,89 +728,133 @@ footer p{
 
   justify-content:space-between;
 
-  font-size:20px;
+  margin-top:10px;
+
+  padding-top:10px;
+
+  border-top:1px solid var(--line);
+
+  font-size:21px;
 
   font-weight:900;
-
-  padding:17px 0;
 
 }
 
 .empty{
 
+  padding:45px 15px;
+
+  border:1px dashed #ddd;
+
+  border-radius:18px;
+
   text-align:center;
 
-  color:#888;
-
-  padding:25px 0;
+  color:#777;
 
 }
 
-.notice{
+/* BOTTOM NAV */
+
+.bottom-nav{
 
   position:fixed;
 
-  left:16px;
+  bottom:0;
 
-  right:16px;
+  left:50%;
 
-  bottom:18px;
+  z-index:90;
 
-  background:#111;
+  width:min(600px,100%);
 
-  color:white;
+  transform:translateX(-50%);
 
-  padding:14px;
+  display:grid;
 
-  border-radius:14px;
+  grid-template-columns:repeat(4,1fr);
 
-  text-align:center;
+  padding:7px 8px calc(7px + env(safe-area-inset-bottom));
 
-  display:none;
+  border-top:1px solid var(--line);
 
-  z-index:200;
+  background:#fff;
 
 }
 
+.nav-button{
+
+  padding:6px 2px;
+
+  border:0;
+
+  background:none;
+
+  color:#777;
+
+  font-size:11px;
+
+}
+
+.nav-icon{
+
+  display:block;
+
+  margin-bottom:2px;
+
+  font-size:19px;
+
+}
+
+.nav-button.active{
+
+  color:#111;
+
+}
+
+.nav-button.active .nav-icon{
+
+  display:inline-block;
+
+  padding:2px 7px;
+
+  border-radius:10px;
+
+  background:var(--yellow);
+
+}
+
+/* DESKTOP */
+
 @media(min-width:700px){
 
-  .service-grid{
+  body{
 
-    grid-template-columns:repeat(4,1fr);
-
-  }
-
-  .products{
-
-    grid-template-columns:repeat(4,1fr);
+    background:#ddd;
 
   }
 
-  .hero{
+  .app{
 
-    margin-top:12px;
-
-    border-radius:26px;
+    box-shadow:0 0 30px #bbb;
 
   }
 
-  .cart-panel{
+  .content{
 
-    align-items:stretch;
+    padding-bottom:30px;
 
   }
 
-  .cart{
+  .bottom-nav{
 
-    width:480px;
+    position:static;
 
-    margin-left:auto;
+    transform:none;
 
-    height:100vh;
+    margin:auto;
 
-    max-height:100vh;
-
-    border-radius:25px 0 0 25px;
+    border-top:1px solid var(--line);
 
   }
 
@@ -732,9 +866,11 @@ footer p{
 
 <body>
 
+<div class="app">
+
 <header class="header">
 
-  <div class="header-inner">
+  <div class="header-row">
 
     <div>
 
@@ -744,9 +880,11 @@ footer p{
 
     </div>
 
-    <button class="cart-btn" onclick="openCart()">
+    <button class="cart-button" onclick="openPage('cart')">
 
-      🛒 Себет <span id="cartCount">0</span>
+      🛒 Себет
+
+      <span class="cart-count" id="cartCount">0</span>
 
     </button>
 
@@ -754,203 +892,103 @@ footer p{
 
 </header>
 
-<section class="hero">
+<main class="content">
 
-  <div class="hero-text">
+<!-- HOME -->
 
-    <h1>O Go</h1>
+<section id="home" class="page active">
 
-    <p>Осакаровкадағы күнделікті қызметтер бір жерде.</p>
+  <div class="hero">
 
-  </div>
+    <div class="hero-bg">O Go</div>
 
-</section>
+    <h1>Керектінің бәрі бір жерде</h1>
 
-<section class="services">
+    <p>
 
-  <h2>Қызметтер</h2>
+      Дүкен, такси, доставка және еда.
 
-  <div class="service-grid">
-
-    <button class="service" onclick="openShop()">
-
-      <div class="icon">🛒</div>
-
-      <div class="service-title">Дүкен</div>
-
-      <div class="service-text">Азық-түлік және тауарлар</div>
-
-    </button>
-
-    <button class="service" onclick="openTaxi()">
-
-      <div class="icon">🚕</div>
-
-      <div class="service-title">Такси</div>
-
-      <div class="service-text">Қала ішінде такси</div>
-
-    </button>
-
-    <button class="service" onclick="soon('Доставка қызметі жақында іске қосылады.')">
-
-      <div class="icon">📦</div>
-
-      <div class="service-title">Доставка</div>
-
-      <div class="service-text">Тауарды есікке жеткізу</div>
-
-    </button>
-
-    <button class="service" onclick="soon('Еда қызметі жақында іске қосылады.')">
-
-      <div class="icon">🍔</div>
-
-      <div class="service-title">Еда</div>
-
-      <div class="service-text">Тамаққа тапсырыс беру</div>
-
-    </button>
-
-  </div>
-
-</section>
-
-<section class="section" id="shop">
-
-  <div class="shop">
-
-    <div class="section-title">Дүкен</div>
-
-    <div class="muted">Қажетті тауарды таңдаңыз.</div>
-
-    <input
-
-      id="search"
-
-      class="search"
-
-      type="search"
-
-      placeholder="Тауар іздеу..."
-
-      oninput="renderProducts()"
-
-    >
-
-    <div class="categories">
-
-      <button class="category active" onclick="setCategory('Барлығы',this)">
-
-        Барлығы
-
-      </button>
-
-      <button class="category" onclick="setCategory('Азық-түлік',this)">
-
-        Азық-түлік
-
-      </button>
-
-      <button class="category" onclick="setCategory('Сусындар',this)">
-
-        Сусындар
-
-      </button>
-
-      <button class="category" onclick="setCategory('Тұрмыс',this)">
-
-        Тұрмыс
-
-      </button>
-
-    </div>
-
-    <div class="products" id="products"></div>
-
-  </div>
-
-</section>
-
-<section class="section" id="taxi">
-
-  <div class="taxi">
-
-    <h2>🚕 Такси</h2>
-
-    <p>Маршрутты көрсетіңіз.</p>
-
-    <input
-
-      id="from"
-
-      class="field"
-
-      placeholder="Қай жерден?"
-
-    >
-
-    <input
-
-      id="to"
-
-      class="field"
-
-      placeholder="Қай жерге?"
-
-    >
-
-    <input
-
-      id="phone"
-
-      class="field"
-
-      type="tel"
-
-      placeholder="Телефон нөмірі"
-
-    >
-
-    <button class="yellow" onclick="orderTaxi()">
-
-      WhatsApp арқылы такси шақыру
-
-    </button>
-
-  </div>
-
-</section>
-
-<section class="section">
-
-  <div class="download">
-
-    <h2>O Go қолданбасы</h2>
-
-    <p class="muted">
-
-      Барлық қызметті телефоннан ыңғайлы пайдаланыңыз.
+      Осакаровка үшін O Go.
 
     </p>
 
-    <div class="apps">
+  </div>
 
-      <a href="#" class="app"
+  <div class="services">
 
-         onclick="soon('App Store сілтемесі жақында қосылады.');return false;">
+    <button class="service" onclick="openPage('store')">
 
-        App Store
+      <div class="service-icon">🛒</div>
 
-      </a>
+      <span class="service-title">Дүкен</span>
 
-      <a href="#" class="app"
+      <span class="service-text">
 
-         onclick="soon('Google Play сілтемесі жақында қосылады.');return false;">
+        Азық-түлік және тауарлар
 
-        Google Play
+      </span>
 
-      </a>
+    </button>
+
+    <button class="service" onclick="openPage('taxi')">
+
+      <div class="service-icon">🚕</div>
+
+      <span class="service-title">Такси</span>
+
+      <span class="service-text">
+
+        Қай жерден → қай жерге
+
+      </span>
+
+    </button>
+
+    <button class="service" onclick="openPage('delivery')">
+
+      <div class="service-icon">📦</div>
+
+      <span class="service-title">Доставка</span>
+
+      <span class="service-text">
+
+        Затты мекенжайға жеткізу
+
+      </span>
+
+    </button>
+
+    <button class="service" onclick="openPage('food')">
+
+      <div class="service-icon">🍔</div>
+
+      <span class="service-title">Еда</span>
+
+      <span class="service-text">
+
+        Тамаққа тапсырыс беру
+
+      </span>
+
+    </button>
+
+  </div>
+
+  <div class="partner">
+
+    <div>
+
+      <b>Дүкен серіктесі</b>
+
+      <br>
+
+      <small>Азық-түлік бөлімі</small>
+
+    </div>
+
+    <div class="partner-logo">
+
+      АЙБОЛИТ
 
     </div>
 
@@ -958,49 +996,129 @@ footer p{
 
 </section>
 
-<footer>
+<!-- STORE -->
 
-  <div class="logo">O Go</div>
+<section id="store" class="page">
 
-  <p>📍 Осакаровка</p>
+  <button class="back" onclick="openPage('home')">
 
-  <p>Күнделікті қызметтер бір жерде.</p>
+    ← Басты бет
 
-</footer>
+  </button>
 
-<div class="cart-panel" id="cartPanel" onclick="outsideCart(event)">
+  <h2 class="title">Дүкен</h2>
 
-  <div class="cart">
+  <input
 
-    <div class="cart-head">
+    id="search"
 
-      <h2>🛒 Себет</h2>
+    class="search"
 
-      <button class="close" onclick="closeCart()">×</button>
+    type="search"
+
+    placeholder="Өнім іздеу..."
+
+    oninput="renderProducts()"
+
+  >
+
+  <div id="categories" class="categories"></div>
+
+  <div id="products" class="products"></div>
+
+</section>
+
+<!-- CART -->
+
+<section id="cart" class="page">
+
+  <button class="back" onclick="openPage('store')">
+
+    ← Дүкен
+
+  </button>
+
+  <h2 class="title">Себет</h2>
+
+  <div id="cartList"></div>
+
+  <div id="cartSummary"></div>
+
+</section>
+
+<!-- TAXI -->
+
+<section id="taxi" class="page">
+
+  <button class="back" onclick="openPage('home')">
+
+    ← Басты бет
+
+  </button>
+
+  <h2 class="title">Такси</h2>
+
+  <div class="notice">
+
+    💬 Онлайн төлем жоқ.
+
+    Тапсырыс WhatsApp арқылы қабылданады.
+
+  </div>
+
+  <div class="form">
+
+    <div class="field">
+
+      <label>Қай жерден</label>
+
+      <input
+
+        id="taxiFrom"
+
+        placeholder="Мекенжай"
+
+      >
 
     </div>
 
-    <div id="cartItems"></div>
+    <div class="field">
 
-    <div class="total">
+      <label>Қай жерге</label>
 
-      <span>Барлығы</span>
+      <input
 
-      <span id="cartTotal">0 ₸</span>
+        id="taxiTo"
+
+        placeholder="Мекенжай"
+
+      >
 
     </div>
 
-    <input
+    <div class="field">
 
-      id="address"
+      <label>Телефон</label>
 
-      class="field"
+      <input
 
-      placeholder="Мекенжай"
+        id="taxiPhone"
+
+        type="tel"
+
+        placeholder="+7 777 000 00 00"
+
+      >
+
+    </div>
+
+    <button
+
+      class="primary"
+
+      onclick="sendTaxi()"
 
     >
-
-    <button class="yellow" onclick="orderWhatsApp()">
 
       WhatsApp арқылы тапсырыс беру
 
@@ -1008,419 +1126,945 @@ footer p{
 
   </div>
 
-</div>
+</section>
 
-<div class="notice" id="notice"></div>
+<!-- DELIVERY -->
+
+<section id="delivery" class="page">
+
+  <button class="back" onclick="openPage('home')">
+
+    ← Басты бет
+
+  </button>
+
+  <h2 class="title">Доставка</h2>
+
+  <div class="form">
+
+    <div class="field">
+
+      <label>Қай жерден алу керек</label>
+
+      <input
+
+        id="deliveryFrom"
+
+        placeholder="Мекенжай"
+
+      >
+
+    </div>
+
+    <div class="field">
+
+      <label>Қай жерге жеткізу керек</label>
+
+      <input
+
+        id="deliveryTo"
+
+        placeholder="Мекенжай"
+
+      >
+
+    </div>
+
+    <div class="field">
+
+      <label>Телефон</label>
+
+      <input
+
+        id="deliveryPhone"
+
+        type="tel"
+
+        placeholder="+7 777 000 00 00"
+
+      >
+
+    </div>
+
+    <div class="field">
+
+      <label>Не жеткізу керек?</label>
+
+      <input
+
+        id="deliveryItem"
+
+        placeholder="Зат / құжат / тауар"
+
+      >
+
+    </div>
+
+    <div class="field">
+
+      <label>Қосымша ақпарат</label>
+
+      <textarea
+
+        id="deliveryNote"
+
+        placeholder="Қосымша ақпарат"
+
+      ></textarea>
+
+    </div>
+
+    <button
+
+      class="primary"
+
+      onclick="sendDelivery()"
+
+    >
+
+      WhatsApp арқылы тапсырыс беру
+
+    </button>
+
+  </div>
+
+</section>
+
+<!-- FOOD -->
+
+<section id="food" class="page">
+
+  <button class="back" onclick="openPage('home')">
+
+    ← Басты бет
+
+  </button>
+
+  <h2 class="title">Еда</h2>
+
+  <div class="notice">
+
+    🍔 Тамаққа тапсырысты WhatsApp арқылы қабылдаймыз.
+
+  </div>
+
+  <div class="form">
+
+    <div class="field">
+
+      <label>Тапсырыс</label>
+
+      <textarea
+
+        id="foodOrder"
+
+        placeholder="Мысалы: 2 бургер, 1 пицца..."
+
+      ></textarea>
+
+    </div>
+
+    <div class="field">
+
+      <label>Мекенжай</label>
+
+      <input
+
+        id="foodAddress"
+
+        placeholder="Жеткізу мекенжайы"
+
+      >
+
+    </div>
+
+    <div class="field">
+
+      <label>Телефон</label>
+
+      <input
+
+        id="foodPhone"
+
+        type="tel"
+
+        placeholder="+7 777 000 00 00"
+
+      >
+
+    </div>
+
+    <button
+
+      class="primary"
+
+      onclick="sendFood()"
+
+    >
+
+      WhatsApp арқылы тапсырыс беру
+
+    </button>
+
+  </div>
+
+</section>
+
+</main>
+
+<!-- BOTTOM NAV -->
+
+<nav class="bottom-nav">
+
+  <button
+
+    class="nav-button active"
+
+    data-page="home"
+
+    onclick="openPage('home')"
+
+  >
+
+    <span class="nav-icon">⌂</span>
+
+    Басты
+
+  </button>
+
+  <button
+
+    class="nav-button"
+
+    data-page="store"
+
+    onclick="openPage('store')"
+
+  >
+
+    <span class="nav-icon">🛒</span>
+
+    Дүкен
+
+  </button>
+
+  <button
+
+    class="nav-button"
+
+    data-page="taxi"
+
+    onclick="openPage('taxi')"
+
+  >
+
+    <span class="nav-icon">🚕</span>
+
+    Такси
+
+  </button>
+
+  <button
+
+    class="nav-button"
+
+    data-page="cart"
+
+    onclick="openPage('cart')"
+
+  >
+
+    <span class="nav-icon">🧺</span>
+
+    Себет
+
+  </button>
+
+</nav>
+
+</div>
 
 <script>
 
+/* =========================
+
+   SETTINGS
+
+========================= */
+
 const WHATSAPP = "87756108898";
 
-const products = [
+/* =========================
 
-  {id:1,name:"Нан",price:180,cat:"Азық-түлік",icon:"🍞"},
+   CATEGORIES
 
-  {id:2,name:"Сүт 1 л",price:450,cat:"Азық-түлік",icon:"🥛"},
+========================= */
 
-  {id:3,name:"Жұмыртқа 10 дана",price:650,cat:"Азық-түлік",icon:"🥚"},
+const categories = [
 
-  {id:4,name:"Қант 1 кг",price:420,cat:"Азық-түлік",icon:"🍚"},
+  "Барлығы",
 
-  {id:5,name:"Макарон",price:390,cat:"Азық-түлік",icon:"🍝"},
+  "Азық-түлік",
 
-  {id:6,name:"Шай",price:750,cat:"Азық-түлік",icon:"🍵"},
+  "Сусындар",
 
-  {id:7,name:"Кофе",price:1200,cat:"Азық-түлік",icon:"☕"},
+  "Сүт өнімдері",
 
-  {id:8,name:"Су 1.5 л",price:250,cat:"Сусындар",icon:"💧"},
+  "Нан-тоқаш",
 
-  {id:9,name:"Шырын",price:650,cat:"Сусындар",icon:"🧃"},
+  "Жеміс-көкөніс",
 
-  {id:10,name:"Газды сусын",price:500,cat:"Сусындар",icon:"🥤"},
+  "Тәттілер",
 
-  {id:11,name:"Сабын",price:350,cat:"Тұрмыс",icon:"🧼"},
+  "Ет өнімдері",
 
-  {id:12,name:"Ұнтақ",price:1450,cat:"Тұрмыс",icon:"🧴"}
+  "Тұрмыс",
+
+  "Балалар"
 
 ];
 
-let cart = [];
+/* =========================
 
-let category = "Барлығы";
+   PRODUCTS
+
+========================= */
+
+const productBase = [
+
+  ["Нан","Нан-тоқаш",450,"🍞"],
+
+  ["Батон","Нан-тоқаш",500,"🥖"],
+
+  ["Сүт 1 л","Сүт өнімдері",550,"🥛"],
+
+  ["Айран 1 л","Сүт өнімдері",520,"🥛"],
+
+  ["Қаймақ","Сүт өнімдері",750,"🥛"],
+
+  ["Су 1.5 л","Сусындар",300,"💧"],
+
+  ["Шырын","Сусындар",850,"🧃"],
+
+  ["Кола","Сусындар",700,"🥤"],
+
+  ["Шай","Сусындар",1200,"🍵"],
+
+  ["Макарон","Азық-түлік",650,"🍝"],
+
+  ["Күріш","Азық-түлік",900,"🍚"],
+
+  ["Қант 1 кг","Азық-түлік",600,"🧂"],
+
+  ["Тұз","Азық-түлік",250,"🧂"],
+
+  ["Ұн 2 кг","Азық-түлік",900,"🌾"],
+
+  ["Май","Азық-түлік",1000,"🫗"],
+
+  ["Алма","Жеміс-көкөніс",900,"🍎"],
+
+  ["Банан","Жеміс-көкөніс",800,"🍌"],
+
+  ["Картоп","Жеміс-көкөніс",350,"🥔"],
+
+  ["Сәбіз","Жеміс-көкөніс",300,"🥕"],
+
+  ["Қияр","Жеміс-көкөніс",700,"🥒"],
+
+  ["Шоколад","Тәттілер",750,"🍫"],
+
+  ["Печенье","Тәттілер",650,"🍪"],
+
+  ["Кәмпит","Тәттілер",1000,"🍬"],
+
+  ["Шұжық","Ет өнімдері",1800,"🥩"],
+
+  ["Тауық еті","Ет өнімдері",2400,"🍗"],
+
+  ["Фарш","Ет өнімдері",2200,"🥩"],
+
+  ["Ыдыс жуғыш","Тұрмыс",950,"🧴"],
+
+  ["Кір жуғыш ұнтақ","Тұрмыс",1800,"🧼"],
+
+  ["Дәретхана қағазы","Тұрмыс",1200,"🧻"],
+
+  ["Балалар жөргегі","Балалар",4500,"🧸"],
+
+  ["Балалар тағамы","Балалар",2500,"🍼"]
+
+];
+
+let products = [];
+
+for(let i = 0; i < 35; i++){
+
+  productBase.forEach((item,index)=>{
+
+    products.push({
+
+      id: i * productBase.length + index,
+
+      name:
+
+        item[0] +
+
+        (i === 0 ? "" : " " + (i + 1)),
+
+      category:item[1],
+
+      price:item[2],
+
+      icon:item[3]
+
+    });
+
+  });
+
+}
+
+/* =========================
+
+   CART
+
+========================= */
+
+let cart =
+
+  JSON.parse(
+
+    localStorage.getItem("ogo_cart") || "{}"
+
+  );
+
+let currentCategory = "Барлығы";
+
+/* =========================
+
+   HELPERS
+
+========================= */
 
 function money(number){
 
-  return Number(number).toLocaleString("kk-KZ") + " ₸";
+  return new Intl.NumberFormat("kk-KZ")
+
+    .format(number) + " ₸";
+
+}
+
+function cartQuantity(){
+
+  return Object.values(cart)
+
+    .reduce(
+
+      (total,quantity)=>total + quantity,
+
+      0
+
+    );
 
 }
 
 function saveCart(){
 
-  localStorage.setItem("ogoCart", JSON.stringify(cart));
+  localStorage.setItem(
+
+    "ogo_cart",
+
+    JSON.stringify(cart)
+
+  );
+
+  updateCartCount();
 
 }
 
-function loadCart(){
+function updateCartCount(){
 
-  try{
+  document.getElementById("cartCount")
 
-    const saved = JSON.parse(localStorage.getItem("ogoCart"));
-
-    if(Array.isArray(saved)){
-
-      cart = saved.filter(item =>
-
-        item &&
-
-        Number.isFinite(Number(item.id)) &&
-
-        Number.isFinite(Number(item.qty)) &&
-
-        Number(item.qty) > 0
-
-      ).map(item => ({
-
-        id:Number(item.id),
-
-        qty:Number(item.qty)
-
-      }));
-
-    }
-
-  }catch(e){
-
-    cart = [];
-
-  }
+    .textContent = cartQuantity();
 
 }
 
-function setCategory(name,button){
+/* =========================
 
-  category = name;
+   PAGE NAVIGATION
 
-  document.querySelectorAll(".category")
+========================= */
 
-    .forEach(x => x.classList.remove("active"));
+function openPage(page){
 
-  button.classList.add("active");
+  document
 
-  renderProducts();
+    .querySelectorAll(".page")
 
-}
+    .forEach(section=>{
 
-function renderProducts(){
-
-  const box = document.getElementById("products");
-
-  const search = document.getElementById("search").value
-
-    .trim()
-
-    .toLowerCase();
-
-  const list = products.filter(product => {
-
-    const catOK =
-
-      category === "Барлығы" ||
-
-      product.cat === category;
-
-    const searchOK =
-
-      product.name.toLowerCase().includes(search);
-
-    return catOK && searchOK;
-
-  });
-
-  box.innerHTML = "";
-
-  list.forEach(product => {
-
-    const div = document.createElement("div");
-
-    div.className = "product";
-
-    div.innerHTML = `
-
-      <div class="product-image">${product.icon}</div>
-
-      <div class="product-name">${product.name}</div>
-
-      <div class="price">${money(product.price)}</div>
-
-      <button class="add" onclick="addToCart(${product.id})">
-
-        Себетке қосу
-
-      </button>
-
-    `;
-
-    box.appendChild(div);
-
-  });
-
-}
-
-function addToCart(id){
-
-  const product = products.find(p => p.id === Number(id));
-
-  if(!product) return;
-
-  const existing = cart.find(item => item.id === product.id);
-
-  if(existing){
-
-    existing.qty += 1;
-
-  }else{
-
-    cart.push({
-
-      id:product.id,
-
-      qty:1
+      section.classList.remove("active");
 
     });
 
+  const selected =
+
+    document.getElementById(page);
+
+  if(selected){
+
+    selected.classList.add("active");
+
+  }
+
+  document
+
+    .querySelectorAll(".nav-button")
+
+    .forEach(button=>{
+
+      button.classList.toggle(
+
+        "active",
+
+        button.dataset.page === page
+
+      );
+
+    });
+
+  if(page === "store"){
+
+    renderProducts();
+
+  }
+
+  if(page === "cart"){
+
+    renderCart();
+
+  }
+
+  window.scrollTo({
+
+    top:0,
+
+    behavior:"smooth"
+
+  });
+
+}
+
+/* =========================
+
+   CATEGORIES
+
+========================= */
+
+function renderCategories(){
+
+  const container =
+
+    document.getElementById("categories");
+
+  container.innerHTML =
+
+    categories.map(category=>`
+
+      <button
+
+        class="${category === currentCategory ? "active" : ""}"
+
+        onclick='
+
+          currentCategory=${JSON.stringify(category)};
+
+          renderProducts();
+
+        '
+
+      >
+
+        ${category}
+
+      </button>
+
+    `).join("");
+
+}
+
+/* =========================
+
+   PRODUCTS
+
+========================= */
+
+function renderProducts(){
+
+  renderCategories();
+
+  const search =
+
+    document
+
+      .getElementById("search")
+
+      .value
+
+      .toLowerCase()
+
+      .trim();
+
+  let list =
+
+    products.filter(product=>{
+
+      const categoryMatch =
+
+        currentCategory === "Барлығы" ||
+
+        product.category === currentCategory;
+
+      const searchMatch =
+
+        product.name
+
+          .toLowerCase()
+
+          .includes(search);
+
+      return categoryMatch && searchMatch;
+
+    });
+
+  document.getElementById("products")
+
+    .innerHTML =
+
+    list.map(product=>`
+
+      <article class="product">
+
+        <div class="product-image">
+
+          ${product.icon}
+
+        </div>
+
+        <div class="product-name">
+
+          ${product.name}
+
+        </div>
+
+        <div class="product-price">
+
+          ${money(product.price)}
+
+        </div>
+
+        <button
+
+          class="add-button"
+
+          onclick="addToCart(${product.id})"
+
+        >
+
+          + Себетке
+
+        </button>
+
+      </article>
+
+    `).join("");
+
+}
+
+/* =========================
+
+   ADD TO CART
+
+========================= */
+
+function addToCart(id){
+
+  cart[id] =
+
+    (cart[id] || 0) + 1;
+
+  saveCart();
+
+}
+
+/* =========================
+
+   CHANGE QUANTITY
+
+========================= */
+
+function changeQuantity(id,change){
+
+  cart[id] =
+
+    (cart[id] || 0) + change;
+
+  if(cart[id] <= 0){
+
+    delete cart[id];
+
   }
 
   saveCart();
 
-  updateCart();
-
-  soon("Тауар себетке қосылды");
+  renderCart();
 
 }
 
-function changeQty(id,amount){
+/* =========================
 
-  const item = cart.find(x => x.id === Number(id));
+   RENDER CART
 
-  if(!item) return;
+========================= */
 
-  item.qty += Number(amount);
+function renderCart(){
 
-  if(item.qty <= 0){
+  const list =
 
-    cart = cart.filter(x => x.id !== Number(id));
+    document.getElementById("cartList");
 
-  }
+  const summary =
 
-  saveCart();
+    document.getElementById("cartSummary");
 
-  updateCart();
+  const ids =
 
-}
+    Object.keys(cart).map(Number);
 
-function cartCount(){
+  if(ids.length === 0){
 
-  return cart.reduce((sum,item) =>
+    list.innerHTML = `
 
-    sum + Number(item.qty),0);
+      <div class="empty">
 
-}
+        🛒
 
-function cartTotal(){
+        <br><br>
 
-  return cart.reduce((sum,item) => {
-
-    const product =
-
-      products.find(p => p.id === Number(item.id));
-
-    if(!product) return sum;
-
-    return sum + product.price * Number(item.qty);
-
-  },0);
-
-}
-
-function updateCart(){
-
-  document.getElementById("cartCount").textContent =
-
-    cartCount();
-
-  document.getElementById("cartTotal").textContent =
-
-    money(cartTotal());
-
-  const box = document.getElementById("cartItems");
-
-  box.innerHTML = "";
-
-  if(cart.length === 0){
-
-    box.innerHTML =
-
-      '<div class="empty">Себет бос</div>';
-
-    return;
-
-  }
-
-  cart.forEach(item => {
-
-    const product =
-
-      products.find(p => p.id === Number(item.id));
-
-    if(!product) return;
-
-    const div = document.createElement("div");
-
-    div.className = "cart-item";
-
-    div.innerHTML = `
-
-      <div class="cart-info">
-
-        <div class="cart-name">${product.name}</div>
-
-        <div>${money(product.price * item.qty)}</div>
-
-      </div>
-
-      <div class="qty">
-
-        <button onclick="changeQty(${product.id},-1)">−</button>
-
-        <strong>${item.qty}</strong>
-
-        <button onclick="changeQty(${product.id},1)">+</button>
+        Себет бос
 
       </div>
 
     `;
 
-    box.appendChild(div);
-
-  });
-
-}
-
-function openCart(){
-
-  updateCart();
-
-  document
-
-    .getElementById("cartPanel")
-
-    .classList.add("open");
-
-}
-
-function closeCart(){
-
-  document
-
-    .getElementById("cartPanel")
-
-    .classList.remove("open");
-
-}
-
-function outsideCart(event){
-
-  if(event.target.id === "cartPanel"){
-
-    closeCart();
-
-  }
-
-}
-
-function openShop(){
-
-  document
-
-    .getElementById("shop")
-
-    .scrollIntoView({behavior:"smooth"});
-
-}
-
-function openTaxi(){
-
-  document
-
-    .getElementById("taxi")
-
-    .scrollIntoView({behavior:"smooth"});
-
-}
-
-function orderWhatsApp(){
-
-  if(cart.length === 0){
-
-    alert("Себет бос.");
+    summary.innerHTML = "";
 
     return;
 
   }
 
-  const address =
+  let total = 0;
 
-    document.getElementById("address").value.trim();
+  list.innerHTML = `
 
-  if(!address){
+    <div class="cart-list">
 
-    alert("Мекенжайды жазыңыз.");
+      ${ids.map(id=>{
 
-    return;
+        const product =
 
-  }
+          products.find(
 
-  let message =
+            item=>item.id === id
 
-    "🛒 O Go тапсырыс\n\n";
+          );
 
-  cart.forEach(item => {
+        const quantity =
 
-    const product =
+          cart[id];
 
-      products.find(p => p.id === Number(item.id));
+        const productTotal =
 
-    if(!product) return;
+          product.price * quantity;
 
-    message +=
+        total += productTotal;
 
-      "• " +
+        return `
 
-      product.name +
+          <div class="cart-item">
 
-      " × " +
+            <div>
 
-      item.qty +
+              <div class="cart-item-name">
 
-      " — " +
+                ${product.icon}
 
-      money(product.price * item.qty) +
+                ${product.name}
 
-      "\n";
+              </div>
 
-  });
+              <div class="cart-item-price">
 
-  message +=
+                ${money(product.price)}
 
-    "\n💰 Барлығы: " +
+                × ${quantity}
 
-    money(cartTotal()) +
+              </div>
 
-    "\n📍 Мекенжай: " +
+            </div>
 
-    address;
+            <div class="quantity">
 
-  window.open(
+              <button
+
+                onclick="changeQuantity(${id},-1)"
+
+              >
+
+                −
+
+              </button>
+
+              <strong>
+
+                ${quantity}
+
+              </strong>
+
+              <button
+
+                onclick="changeQuantity(${id},1)"
+
+              >
+
+                +
+
+              </button>
+
+            </div>
+
+          </div>
+
+        `;
+
+      }).join("")}
+
+    </div>
+
+  `;
+
+  summary.innerHTML = `
+
+    <div class="summary">
+
+      <div class="summary-line">
+
+        <span>Тауар саны</span>
+
+        <b>${cartQuantity()} дана</b>
+
+      </div>
+
+      <div class="summary-line">
+
+        <span>Тауарлар сомасы</span>
+
+        <b>${money(total)}</b>
+
+      </div>
+
+      <div class="total">
+
+        <span>Барлығы</span>
+
+        <span>${money(total)}</span>
+
+      </div>
+
+      <br>
+
+      <div class="field">
+
+        <label>
+
+          Мекенжай
+
+        </label>
+
+        <input
+
+          id="cartAddress"
+
+          placeholder="Жеткізу мекенжайы"
+
+        >
+
+      </div>
+
+      <div class="field">
+
+        <label>
+
+          Телефон
+
+        </label>
+
+        <input
+
+          id="cartPhone"
+
+          type="tel"
+
+          placeholder="+7 777 000 00 00"
+
+        >
+
+      </div>
+
+      <button
+
+        class="primary"
+
+        onclick="sendCartOrder()"
+
+      >
+
+        WhatsApp арқылы тапсырыс беру
+
+      </button>
+
+      <p style="
+
+        color:#777;
+
+        font-size:12px;
+
+        margin-bottom:0;
+
+      ">
+
+        Онлайн төлем жоқ.
+
+        Тапсырыс WhatsApp арқылы жіберіледі.
+
+      </p>
+
+    </div>
+
+  `;
+
+}
+
+/* =========================
+
+   WHATSAPP
+
+========================= */
+
+function sendWhatsApp(message){
+
+  const url =
 
     "https://wa.me/" +
 
@@ -1428,7 +2072,11 @@ function orderWhatsApp(){
 
     "?text=" +
 
-    encodeURIComponent(message),
+    encodeURIComponent(message);
+
+  window.open(
+
+    url,
 
     "_blank"
 
@@ -1436,23 +2084,159 @@ function orderWhatsApp(){
 
 }
 
-function orderTaxi(){
+/* =========================
 
-  const from =
+   STORE ORDER
 
-    document.getElementById("from").value.trim();
+========================= */
 
-  const to =
+function sendCartOrder(){
 
-    document.getElementById("to").value.trim();
+  const address =
+
+    document
+
+      .getElementById("cartAddress")
+
+      .value
+
+      .trim();
 
   const phone =
 
-    document.getElementById("phone").value.trim();
+    document
+
+      .getElementById("cartPhone")
+
+      .value
+
+      .trim();
+
+  if(!address || !phone){
+
+    alert(
+
+      "Телефон мен мекенжайды толтырыңыз."
+
+    );
+
+    return;
+
+  }
+
+  const ids =
+
+    Object.keys(cart).map(Number);
+
+  let total = 0;
+
+  const lines =
+
+    ids.map(id=>{
+
+      const product =
+
+        products.find(
+
+          item=>item.id === id
+
+        );
+
+      const quantity =
+
+        cart[id];
+
+      total +=
+
+        product.price * quantity;
+
+      return (
+
+        "• " +
+
+        product.name +
+
+        " — " +
+
+        quantity +
+
+        " × " +
+
+        money(product.price)
+
+      );
+
+    });
+
+  const message =
+
+`O Go — ДҮКЕН ТАПСЫРЫСЫ
+
+${lines.join("\n")}
+
+Тауар саны: ${cartQuantity()} дана
+
+БАРЛЫҒЫ: ${money(total)}
+
+Мекенжай:
+
+${address}
+
+Телефон:
+
+${phone}
+
+Төлем: WhatsApp арқылы`;
+
+  sendWhatsApp(message);
+
+}
+
+/* =========================
+
+   TAXI
+
+========================= */
+
+function sendTaxi(){
+
+  const from =
+
+    document
+
+      .getElementById("taxiFrom")
+
+      .value
+
+      .trim();
+
+  const to =
+
+    document
+
+      .getElementById("taxiTo")
+
+      .value
+
+      .trim();
+
+  const phone =
+
+    document
+
+      .getElementById("taxiPhone")
+
+      .value
+
+      .trim();
 
   if(!from || !to || !phone){
 
-    alert("Барлық жолды толтырыңыз.");
+    alert(
+
+      "Барлық жолды толтырыңыз."
+
+    );
 
     return;
 
@@ -1460,53 +2244,207 @@ function orderTaxi(){
 
   const message =
 
-    "🚕 O Go такси\n\n" +
+`O Go — ТАКСИ
 
-    "📍 Қай жерден: " + from + "\n" +
+Қай жерден:
 
-    "📍 Қай жерге: " + to + "\n" +
+${from}
 
-    "📞 Телефон: " + phone;
+Қай жерге:
 
-  window.open(
+${to}
 
-    "https://wa.me/" +
+Телефон:
 
-    WHATSAPP +
+${phone}
 
-    "?text=" +
+Төлем: WhatsApp арқылы`;
 
-    encodeURIComponent(message),
-
-    "_blank"
-
-  );
+  sendWhatsApp(message);
 
 }
 
-function soon(message){
+/* =========================
 
-  const box =
+   DELIVERY
 
-    document.getElementById("notice");
+========================= */
 
-  box.textContent = message;
+function sendDelivery(){
 
-  box.style.display = "block";
+  const from =
 
-  setTimeout(() => {
+    document
 
-    box.style.display = "none";
+      .getElementById("deliveryFrom")
 
-  },2500);
+      .value
+
+      .trim();
+
+  const to =
+
+    document
+
+      .getElementById("deliveryTo")
+
+      .value
+
+      .trim();
+
+  const phone =
+
+    document
+
+      .getElementById("deliveryPhone")
+
+      .value
+
+      .trim();
+
+  const item =
+
+    document
+
+      .getElementById("deliveryItem")
+
+      .value
+
+      .trim();
+
+  const note =
+
+    document
+
+      .getElementById("deliveryNote")
+
+      .value
+
+      .trim();
+
+  if(!from || !to || !phone || !item){
+
+    alert(
+
+      "Қажетті жолдарды толтырыңыз."
+
+    );
+
+    return;
+
+  }
+
+  const message =
+
+`O Go — ДОСТАВКА
+
+Алу мекенжайы:
+
+${from}
+
+Жеткізу мекенжайы:
+
+${to}
+
+Не жеткізу керек:
+
+${item}
+
+Телефон:
+
+${phone}
+
+Қосымша ақпарат:
+
+${note || "-"}
+
+Төлем: WhatsApp арқылы`;
+
+  sendWhatsApp(message);
 
 }
 
-loadCart();
+/* =========================
 
-renderProducts();
+   FOOD
 
-updateCart();
+========================= */
+
+function sendFood(){
+
+  const order =
+
+    document
+
+      .getElementById("foodOrder")
+
+      .value
+
+      .trim();
+
+  const address =
+
+    document
+
+      .getElementById("foodAddress")
+
+      .value
+
+      .trim();
+
+  const phone =
+
+    document
+
+      .getElementById("foodPhone")
+
+      .value
+
+      .trim();
+
+  if(!order || !address || !phone){
+
+    alert(
+
+      "Барлық жолды толтырыңыз."
+
+    );
+
+    return;
+
+  }
+
+  const message =
+
+`O Go — ЕДА
+
+Тапсырыс:
+
+${order}
+
+Мекенжай:
+
+${address}
+
+Телефон:
+
+${phone}
+
+Төлем: WhatsApp арқылы`;
+
+  sendWhatsApp(message);
+
+}
+
+/* =========================
+
+   START
+
+========================= */
+
+updateCartCount();
+
+renderCategories();
 
 </script>
 
