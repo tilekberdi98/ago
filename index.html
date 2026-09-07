@@ -1,3 +1,112 @@
+XML
+<div><div class="logo">O Go</div></div>
+
+<div class="location">
+  📍 Осакаровка
+</div>
+
+<button class="cart-button" onclick="openCart()">
+  🛒 <span>Себет</span><span id="cartCount">0</span></button>
+XML
+<div class="hero-content">
+
+  <h1>O Go</h1>
+
+  <p>
+    Осакаровкадағы күнделікті қызметтер бір жерде.
+  </p>
+
+</div>
+XML
+<button class="service" onclick="goStore()">
+
+  <div class="service-icon">🛒</div>
+
+  <div>
+    <div class="service-title">Дүкен</div>
+    <div class="service-text">Азық-түлік және тауарлар</div></div>
+
+</button><button class="service" onclick="goTaxi()">
+
+  <div class="service-icon">🚕</div>
+
+  <div>
+    <div class="service-title">Такси</div>
+    <div class="service-text">Қала ішінде</div></div>
+
+</button><button class="service" onclick="showDelivery()">
+
+  <div class="service-icon">📦</div>
+
+  <div>
+    <div class="service-title">Доставка</div>
+    <div class="service-text">Тауарыңызды жеткізу</div></div>
+
+</button><button class="service" onclick="showFood()">
+
+  <div class="service-icon">🍔</div>
+
+  <div>
+    <div class="service-title">Еда</div>
+    <div class="service-text">Тамаққа тапсырыс</div></div>
+
+</button>
+XML
+<h2>Дүкен</h2>
+
+<div class="shop-partner">
+
+  <img
+    class="partner-logo"
+    src="aibolit.png"
+    onerror="this.style.display='none'"
+    alt="Aybolit"
+  >
+
+  <span>Aybolit</span>
+
+</div>
+<input id="search" class="search" placeholder="Тауар іздеу..." oninput="renderProducts()"
+
+XML
+<input id="taxiFrom" placeholder="Қай жерден?">
+
+<input id="taxiTo" placeholder="Қай жерге?">
+
+<input id="taxiPhone" type="tel" placeholder="Телефон нөмірі">
+
+<button class="taxi-button" onclick="orderTaxi()">
+  🚕 Таксиге тапсырыс беру
+</button>
+XML
+<div>
+
+  <h2>O Go қолданбасы</h2>
+
+  <p>
+    Тапсырыстарды телефоннан тез жасаңыз.
+  </p>
+
+</div><div class="app-buttons">
+
+  <button class="app-btn">
+    App Store
+  </button>
+
+  <button class="app-btn">
+    Google Play
+  </button>
+
+</div>
+<strong>O Go</strong> · Осакаровка
+
+XML
+<h2>Себет</h2>
+
+<button class="close" onclick="closeCart()">
+  ×
+</button>
+XML
 <div class="total">
 
   <span>Барлығы</span>
@@ -6,19 +115,9 @@
     0 ₸
   </span>
 
-</div>
-
-
-<input
-  id="address"
-  class="address"
-  placeholder="Жеткізу мекенжайы"
->
-
-
-<button
-  class="whatsapp"
-  onclick="orderWhatsApp()"
+</div><inputid="address"class="address"placeholder="Жеткізу мекенжайы"
+><buttonclass="whatsapp"onclick="orderWhatsApp()"
 >
   WhatsApp арқылы тапсырыс беру
 </button>
+14:41
